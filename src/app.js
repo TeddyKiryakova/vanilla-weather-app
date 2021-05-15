@@ -24,6 +24,8 @@ let humidityElement = document.querySelector("#humidity");
 let windElement = document.querySelector("#wind");
 let dateElement = document.querySelector("#date");
 let iconElement = document.querySelector("#icon");
+let sunriseElement =document.querySelector("#sunrise");
+let sunsetElement =document.querySelector("#sunset");
 
 celsiusTemperature = response.data.main.temp;
 
@@ -35,6 +37,9 @@ windElement.innerHTML = Math.round(response.data.wind.speed);
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
 iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`); 
 iconElement.setAttribute("alt", response.data.weather[0].description);
+sunriseElement.innerHTML =formatDate(response.data.sys.sunrise * 1000);
+sunsetElement.innerHTML = formatDate(response.data.sys.sunset * 1000);
+
 }
 
 function search(city) {
