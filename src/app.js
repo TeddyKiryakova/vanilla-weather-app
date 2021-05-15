@@ -86,3 +86,21 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 search("Brentwood,UK");
 
 //
+
+function showWeather(response) {
+  let h1 = document.querySelector("#city");
+  let temperature = Math.round(response.data.main.temp);
+  h1.innerHTML = `Your location is ${response.data.name} and it's ${temperature}° `;
+}
+
+function showPosition(position) {
+  let apiKey = "70aecad43749ddb42a27c8361beb973e";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(url).then(showWeather);
+}
+
+navigator.geolocation.getCurrentPosition(showPosition);
+
+document.querySelector("#location-button").addEventListener("click", showWeather);

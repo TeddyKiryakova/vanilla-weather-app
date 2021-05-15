@@ -45,14 +45,21 @@ a {
   text-decoration: none;
   color: #074e47;
 }
-
-.search-button {
+form {
+  padding-top: 20px;
+}
+.form-control {
+  border-radius: 20px;
+}
+.search-button,
+#location-button {
   position: relative;
   background-color: #074e47;
   border: none;
-  border-radius: 30px;
-  font-size: 10px;
+  border-radius: 20px;
+  font-size: 14px;
   color: #ffffff;
+  margin-right: 10px;
   padding: 10px;
   text-align: center;
   transition-duration: 0.4s;
