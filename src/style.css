@@ -111,3 +111,21 @@ form {
 ::placeholder {
   color: #074e47;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #074e47;
+}
+
+.forecast-date {
+  font-size: 17px;
+}
+
+.forecast-temperature-min {
+  opacity: 0.4;
+}
+
+.forecast-temperature {
+  font-size: 14px;
+}
