@@ -14,7 +14,8 @@ function formatDate(timestamp) {
 
 }
 
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data.daily);
 let forecastElement = document.querySelector("#forecast");
 
 let forecastHTML= `<div class="row">`;
@@ -38,6 +39,14 @@ forecastHTML =
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 
+}
+ 
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "70aecad43749ddb42a27c8361beb973e";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    
+    axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response){
@@ -65,6 +74,8 @@ iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data
 iconElement.setAttribute("alt", response.data.weather[0].description);
 sunriseElement.innerHTML =formatDate(response.data.sys.sunrise * 1000);
 sunsetElement.innerHTML = formatDate(response.data.sys.sunset * 1000);
+
+getForecast(response.data.coord);
 
 }
 
@@ -110,7 +121,7 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Brentwood,UK");
-displayForecast();
+
 
 //
 
