@@ -69,7 +69,7 @@ form {
 
 .weather-app-wrapper {
   box-sizing: content-box;
-  margin: 30px 250px;
+  margin: 30px auto;
 }
 
 .weather-app {
