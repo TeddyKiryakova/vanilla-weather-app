@@ -127,5 +127,8 @@ form {
 }
 
 .forecast-temperature {
-  font-size: 14px;
+  font-size: 17px;
+}
+.forecast-max {
+  font-weight: bolder;
 }
